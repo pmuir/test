@@ -1,0 +1,88 @@
+Step: build-step-credential-initializer:
+
+{"level":"warn","ts":1559404316.3506727,"logger":"fallback-logger","caller":"logging/config.go:65","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/test\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1559404316.3526719,"logger":"fallback-logger","caller":"creds-init/main.go:40","msg":"Credentials initialized."}
+Step: build-step-git-source-0:
+
+{"level":"warn","ts":1559404317.5033286,"logger":"fallback-logger","caller":"logging/config.go:65","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/test\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1559404319.3683221,"logger":"fallback-logger","caller":"git-init/main.go:92","msg":"Successfully cloned \"https://github.com/pmuir/test.git\" @ \"master\" in path \"/workspace\""}
+Step: build-step-jenkins:
+
+Picked up _JAVA_OPTIONS: -Xmx400m
+  21.337 [id=20]	WARNING	c.c.j.p.k.KubernetesCredentialProvider#convertSecret: Failed to convert Secret 'kaniko-secret' of type secretText due to secretText credential is missing the text
+Started
+Running in Durability level: PERFORMANCE_OPTIMIZED
+  27.623 [id=26]	WARNING	i.f.k.c.i.VersionUsageUtils#alert: The client is using resource type 'customresourcedefinitions' with unstable version 'v1beta1'
+[Pipeline] Start of Pipeline
+[Pipeline] node
+Running on Jenkins in /tmp/jenkinsTests.tmp/jenkins9011729510783918347test/workspace/job
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Declarative: Checkout SCM)
+[Pipeline] checkout
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] withCredentials
+Masking only exact matches of $CHARTMUSEUM_CREDS or $CHARTMUSEUM_CREDS_USR or $CHARTMUSEUM_CREDS_PSW
+[Pipeline] {
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (CI Build and push snapshot)
+Stage "CI Build and push snapshot" skipped due to when conditional
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Build Release)
+[Pipeline] dir
+Running in /home/jenkins/go/src/github.com/pmuir/test
+[Pipeline] {
+[Pipeline] git
+Cloning the remote Git repository
+Cloning repository https://github.com/pmuir/test.git
+ > git init /home/jenkins/go/src/github.com/pmuir/test # timeout=10
+Fetching upstream changes from https://github.com/pmuir/test.git
+ > git --version # timeout=10
+ > git fetch --tags --progress https://github.com/pmuir/test.git +refs/heads/*:refs/remotes/origin/*
+ > git config remote.origin.url https://github.com/pmuir/test.git # timeout=10
+ > git config --add remote.origin.fetch +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git config remote.origin.url https://github.com/pmuir/test.git # timeout=10
+Fetching upstream changes from https://github.com/pmuir/test.git
+ > git fetch --tags --progress https://github.com/pmuir/test.git +refs/heads/*:refs/remotes/origin/*
+ > git rev-parse refs/remotes/origin/master^{commit} # timeout=10
+ > git rev-parse refs/remotes/origin/origin/master^{commit} # timeout=10
+Checking out Revision e88a86645d00b9508b2c27c80b359b81f3f3cd20 (refs/remotes/origin/master)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f e88a86645d00b9508b2c27c80b359b81f3f3cd20
+ > git branch -a -v --no-abbrev # timeout=10
+ > git checkout -b master e88a86645d00b9508b2c27c80b359b81f3f3cd20
+Commit message: "Draft create"
+First time build. Skipping changelog.
+[Pipeline] sh
++ **-release-version
++ echo 0.0.1
+[Pipeline] sh
++ cat VERSION
++ ** step tag --version 0.0.1
+Updating chart version in charts/test/Chart.yaml to 0.0.1
+Updating repository in charts/test/values.yaml to 10.31.246.240:5000/pmuir/test
+Updating tag in charts/test/values.yaml to 0.0.1
+error: Have you set up a git credential helper? See https://help.github.com/articles/caching-your-github-password-in-git/
+: failed to run 'git push origin v0.0.1' command in directory '', output: 'remote: Permission to pmuir/test.git denied to ***********.
+fatal: unable to access 'https://github.com/pmuir/test.git/': The requested URL returned error: 403'
+[Pipeline] }
+[Pipeline] // dir
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Promote to Environments)
+Stage "Promote to Environments" skipped due to earlier failure(s)
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // withCredentials
+[Pipeline] }
+[Pipeline] // node
+[Pipeline] End of Pipeline
