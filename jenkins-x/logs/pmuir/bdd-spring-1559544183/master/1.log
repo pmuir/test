@@ -5,7 +5,7 @@ Step: build-step-credential-initializer:
 Step: build-step-git-source-0:
 
 {"level":"warn","ts":1559544211.84983,"logger":"fallback-logger","caller":"logging/config.go:65","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/test\" is not a valid GitHub commit ID"}
-{"level":"info","ts":1559544213.1775262,"logger":"fallback-logger","caller":"git-init/main.go:92","msg":"Successfully cloned \"https://github.com/pmuir/bdd-spring-1559544183.git\" @ \"master\" in path \"/workspace\""}
+{"level":"info","ts":1559544213.1775262,"logger":"fallback-logger","caller":"git-init/main.go:92","msg":"Successfully cloned \"https://github.com/*****/bdd-spring-1559544183.git\" @ \"master\" in path \"/workspace\""}
 Step: build-step-jenkins:
 
 Picked up _JAVA_OPTIONS: -Xmx400m
@@ -37,10 +37,10 @@ Stage "CI Build and push snapshot" skipped due to when conditional
 [Pipeline] git
  > git rev-parse --is-inside-work-tree # timeout=10
 Fetching changes from the remote Git repository
- > git config remote.origin.url https://github.com/pmuir/bdd-spring-1559544183.git # timeout=10
-Fetching upstream changes from https://github.com/pmuir/bdd-spring-1559544183.git
+ > git config remote.origin.url https://github.com/*****/bdd-spring-1559544183.git # timeout=10
+Fetching upstream changes from https://github.com/*****/bdd-spring-1559544183.git
  > git --version # timeout=10
- > git fetch --tags --progress https://github.com/pmuir/bdd-spring-1559544183.git +refs/heads/*:refs/remotes/origin/*
+ > git fetch --tags --progress https://github.com/*****/bdd-spring-1559544183.git +refs/heads/*:refs/remotes/origin/*
  > git rev-parse refs/remotes/origin/master^{commit} # timeout=10
  > git rev-parse refs/remotes/origin/origin/master^{commit} # timeout=10
 Checking out Revision 9d59b7a8c4081d1f285ccf7ac47a2ca39405053e (refs/remotes/origin/master)
@@ -848,11 +848,11 @@ Picked up _JAVA_OPTIONS: -Xmx400m
 + cat VERSION
 + ** step tag --version 0.0.1
 Updating chart version in charts/bdd-spring-1559544183/Chart.yaml to 0.0.1
-Updating repository in charts/bdd-spring-1559544183/values.yaml to 10.31.246.240:5000/pmuir/bdd-spring-1559544183
+Updating repository in charts/bdd-spring-1559544183/values.yaml to 10.31.246.240:5000/*****/bdd-spring-1559544183
 Updating tag in charts/bdd-spring-1559544183/values.yaml to 0.0.1
 error: Have you set up a git credential helper? See https://help.github.com/articles/caching-your-github-password-in-git/
-: failed to run 'git push origin v0.0.1' command in directory '', output: 'remote: Permission to pmuir/bdd-spring-1559544183.git denied to ***********.
-fatal: unable to access 'https://github.com/pmuir/bdd-spring-1559544183.git/': The requested URL returned error: 403'
+: failed to run 'git push origin v0.0.1' command in directory '', output: 'remote: Permission to *****/bdd-spring-1559544183.git denied to ***********.
+fatal: unable to access 'https://github.com/*****/bdd-spring-1559544183.git/': The requested URL returned error: 403'
 [Pipeline] }
 [Pipeline] // stage
 [Pipeline] stage
